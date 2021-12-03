@@ -11,7 +11,7 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/", test)
 	router.NotFoundHandler = http.HandlerFunc(test2)
-	err := http.ListenAndServe(":80", router)
+	err := http.ListenAndServe("0.0.0.0:9080", router)
 	if err != nil {
 		fmt.Println(err)
 	}
