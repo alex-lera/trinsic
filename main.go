@@ -11,7 +11,10 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/", test)
 	router.NotFoundHandler = http.HandlerFunc(test2)
-	http.ListenAndServe(":8080", router)
+	err := http.ListenAndServe(":80", router)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 func test(resp http.ResponseWriter, req *http.Request) {
