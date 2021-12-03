@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	fmt.Println("hello router")
 	router := mux.NewRouter()
 	router.HandleFunc("/", test)
 	router.NotFoundHandler = http.HandlerFunc(test2)
