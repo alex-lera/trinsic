@@ -7,11 +7,12 @@ import (
 )
 
 func main() {
-	fmt.Println("hello router")
+	port := os.Getenv("PORT")
+	fmt.Println(port)
 	router := mux.NewRouter()
 	router.HandleFunc("/", test)
 	router.NotFoundHandler = http.HandlerFunc(test2)
-	err := http.ListenAndServe("0.0.0.0:9080", router)
+	err := http.ListenAndServe(":"+port, router)
 	if err != nil {
 		fmt.Println(err)
 	}
